@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge 10</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="controleurs/controleur.js"></script>
+        <script src="modeles/modele.js"></script>
+    </head>
+    <body>
+        <div ng-controller="productsCtrl">
+            <p style="text-decoration: underline">Liste des produits</p>
+            <ol>
+                <li ng-repeat = "product in products" >
+                    Produit : <strong> {{product.name}} </strong> 
+                    <br />
+                    Description : {{product.category}}, Prix = <strong style="color:green">{{product.price}}</strong>
+                </li>
+            </ol>
+            <p style="text-decoration: underline">Ajout d'un produit</p>
+            <form ng-submit="product.addProduct()">
+                <input type="text" ng-model="product.name"  size="30"
+                       placeholder="nom du produit">
+                <input type="text" ng-model="product.category"  size="20"
+                       placeholder="description du produit">
+                <input type="text" ng-model="product.price"  size="10"
+                       placeholder="prix en €">
+                <input class="btn-primary" type="submit" value="ajouter">
+            </form>
+        </div>
+    </body>
+</html>
